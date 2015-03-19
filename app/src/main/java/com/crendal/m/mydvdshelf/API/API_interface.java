@@ -1,10 +1,9 @@
 package com.crendal.m.mydvdshelf.API;
 
-import com.squareup.okhttp.Response;
+import com.crendal.m.mydvdshelf.Entities.DVD;
 
+import retrofit.Callback;
 import retrofit.http.GET;
-import retrofit.http.Headers;
-import retrofit.http.Path;
 import retrofit.http.Query;
 
 /**
@@ -13,7 +12,7 @@ import retrofit.http.Query;
 public interface API_interface {
 
 
-    @GET("/imdb?title=")
-    public String fetchMovieInfo(@Query("title") String title);
+    @GET("/imdb")
+    public void fetchMovieInfo(@Query("title") String filmTitle, @Query("format") String returnFormat, Callback<DVD> callback);
 
 }

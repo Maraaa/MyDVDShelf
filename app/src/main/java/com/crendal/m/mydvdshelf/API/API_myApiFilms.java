@@ -1,29 +1,14 @@
 package com.crendal.m.mydvdshelf.API;
 
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.widget.Toast;
+import android.util.Log;
 
-import com.squareup.okhttp.Response;
+import com.crendal.m.mydvdshelf.Entities.DVD;
+import com.squareup.okhttp.OkHttpClient;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
+import retrofit.Callback;
 import retrofit.RestAdapter;
-import retrofit.http.GET;
-import retrofit.http.Path;
+import retrofit.RetrofitError;
+import retrofit.client.OkClient;
 
 /**
  * Created by Mara on 13/03/2015.
@@ -41,6 +26,8 @@ public class API_myApiFilms {
     {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(API_Constants.base_url)  //call your base url
+                .setClient(new OkClient(new OkHttpClient()))
+                .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
         return restAdapter;
     }
@@ -48,13 +35,29 @@ public class API_myApiFilms {
     public String getMovieInfos(String movieTitle){
         //String query = base_url + param_film_title + movieTitle + format_json;
 
-        RestAdapter ra = this.connection();
+        RestAdapter restAdapter = new RestAdapter.Builder()
+                .setEndpoint(API_Constants.base_url)  //call your base url
+                .build();
 
-        API_interface myApi = ra.create(API_interface.class);
+        API_interface myApi = restAdapter.create(API_interface.class);
 
-        String retour = myApi.fetchMovieInfo(movieTitle);
+        final String[] succes = {"NO_RESULT"};
 
-        return retour;
+        myApi.fetchMovieInfo(movieTitle, "json",new Callback<DVD>() {
+            @Override
+             public void success(DVD retour, retrofit.client.Response response) {
+                 Log.i("App", retour.getPlot());
+                 succes[0] = retour.getPlot();
+             }
+
+             @Override
+             public void failure(RetrofitError error) {
+                 Log.i("App", error.getMessage());
+                 succes[0] = error.getMessage();
+             }
+         });
+
+        return succes[0];
     }//change return type
 
 }
