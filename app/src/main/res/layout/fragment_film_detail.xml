@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="153dp"
-        android:id="@+id/film_imageView"
-        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="76dp"
+        android:id="@+id/detail_imageView"
         android:background="@color/lightgrey"
         android:layout_marginLeft="@dimen/detail_pic_margin"
         android:layout_marginRight="@dimen/detail_pic_margin"/>
@@ -17,6 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/title"
-        android:layout_gravity="center" />
+        android:id="@+id/detail_textView"/>
 
 </LinearLayout>
