@@ -46,7 +46,12 @@ public class FilmListAdapter extends BaseAdapter {
         myFilm = dataSource.get(position);
         if(cellView == null)
         {
-            
+            viewHolder = new FilmItemViewHolder(context);
+            cellView = viewHolder.getView();
+            cellView.setTag(viewHolder);
         }
+        viewHolder = (FilmItemViewHolder) cellView.getTag();
+        viewHolder.updateView(myFilm);
+        return cellView;
     }
 }

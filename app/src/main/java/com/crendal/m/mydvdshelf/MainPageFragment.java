@@ -24,8 +24,8 @@ public class MainPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
-        this.viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        this.slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+        this.viewPager = (ViewPager) view.findViewById(R.id.myviewPager);
+        this.slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.home_sliding_tabs);
 
         adapter = new FragmentPagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(adapter);
