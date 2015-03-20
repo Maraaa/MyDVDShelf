@@ -14,13 +14,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String _ID = "_id";
     public static final String TITLE = "title";
     public static final String RELEASE_DATE = "relase_date";
+    public static final String GENRE = "genre";
     public static final String IMG_PATH = "img_path";
+    public static final String PRODUCTEUR = "producteur";
+    public static final String SYNOPSYS = "synopsys";
 
     static final String DB_NAME = "DVDS.DB";
 
     static final int DB_VERSION = 1;
 
-    private static final String CREATE_TABLE = "";
+    private static final String CREATE_TABLE =
+            "CREATE TABLE " + TABLE_NAME + "("
+            + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TITLE + " TEXT NOT NULL,"
+            + RELEASE_DATE + " TEXT,"
+            + GENRE + " TEXT,"
+            + IMG_PATH + " TEXT,"
+            + PRODUCTEUR + "TEXT,"
+            + SYNOPSYS + "TEXT);";
 
     public DatabaseHelper(Context context)
     {

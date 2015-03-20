@@ -46,8 +46,8 @@ public class API_myApiFilms {
         myApi.fetchMovieInfo(movieTitle, "json",new Callback<DVD>() {
             @Override
              public void success(DVD retour, retrofit.client.Response response) {
-                 Log.i("App", retour.getPlot());
-                 succes[0] = retour.getPlot();
+                 Log.i("App", retour.getTitle());
+                 succes[0] = retour.getTitle();
              }
 
              @Override
