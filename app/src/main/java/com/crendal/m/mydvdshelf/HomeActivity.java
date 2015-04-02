@@ -53,7 +53,7 @@ public class HomeActivity extends ActionBarActivity {
     {
         mFragments = new ArrayList<>();
         mFragments.add(new ListDVDFragment());
-        mFragments.add(new ListDVDFragment());
+        mFragments.add(new AddFilmFragment());
     }
 
     @Override

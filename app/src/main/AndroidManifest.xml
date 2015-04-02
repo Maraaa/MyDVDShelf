@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FilmDetailsActivity"/>
+        <activity android:name=".FSImageActivity"/>
     </application>
 
 </manifest>
