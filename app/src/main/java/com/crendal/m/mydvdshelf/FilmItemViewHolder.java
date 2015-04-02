@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.crendal.m.mydvdshelf.Entities.DVD;
 import com.squareup.picasso.Picasso;
 
+import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
@@ -32,6 +33,7 @@ public class FilmItemViewHolder {
 
     private void createView() {
         filmView = LayoutInflater.from(context).inflate(R.layout.fragment_film_detail, null);
+        ButterKnife.inject(this,filmView);
     }
 
     public void updateView(DVD film) {

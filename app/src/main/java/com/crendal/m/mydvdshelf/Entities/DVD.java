@@ -2,10 +2,12 @@ package com.crendal.m.mydvdshelf.Entities;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 /**
  * Created by Mara on 13/03/2015.
  */
-public class DVD {
+public class DVD  implements Serializable {
 
     private String Title;
     private String Synopsys;

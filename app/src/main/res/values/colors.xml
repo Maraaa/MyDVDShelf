@@ -2,4 +2,5 @@
 <resources>
     <color name="lightgrey">#ddd</color>
     <color name="red">#f00</color>
+    <color name="toolbarColor">#ff7e7e7e</color>
 </resources>

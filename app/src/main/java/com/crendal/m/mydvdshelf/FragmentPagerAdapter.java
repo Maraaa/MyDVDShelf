@@ -13,11 +13,9 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
 
     private List<Fragment> dataSource;
 
-    public FragmentPagerAdapter(FragmentManager fm) {
+    public FragmentPagerAdapter(FragmentManager fm, List<Fragment> mList) {
         super(fm);
-        dataSource = new ArrayList<Fragment>();
-        /*dataSource.add(new HelloPageFragment());
-        dataSource.add(new ListPersonPageFragment());*/
+        dataSource = mList;
     }
 
     @Override
@@ -32,8 +30,8 @@ public class FragmentPagerAdapter extends android.support.v4.app.FragmentPagerAd
 
     public CharSequence getPageTitle(int position) {
         CharSequence title = "";
-        if(position == 0) { title = "Accueil"; }
-        else if(position == 1) { title = "Liste des contacts"; }
+        if(position == 0) { title = "Liste des films"; }
+        else if(position == 1) { title = "Ajouter un dvd"; }
         else { title = "..."; }
         return title;
     }
